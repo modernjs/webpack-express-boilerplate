@@ -1,0 +1,8 @@
+extends layout
+
+block content
+    h1= title
+    form(method="POST" action="/login")
+        input(type="text" name="username", placeholder='username' value="bob")
+        input(type="password" name="password", placeholder='password', value="secure")
+        button(type="submit") Send
