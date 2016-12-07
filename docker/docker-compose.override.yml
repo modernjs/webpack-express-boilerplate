@@ -1,0 +1,15 @@
+version: '2'
+services:
+  app:
+    environment:
+      - NODE_ENV=development
+      - PORT=4000
+      - HOT_LOAD_PORT=8123
+    command: bash -c "yarn run dev"
+    volumes:
+      - ~/.bash_history:/root/.bash_history
+      - ..:/app/
+      - /app/node_modules
+    ports:
+      - '4000:4000'
+      - '8123:8123'

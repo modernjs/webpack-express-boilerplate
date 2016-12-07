@@ -9,6 +9,8 @@ var WebpackDevServer = require('webpack-dev-server');
 var config = require('./webpack.config');
 
 var port = process.env.HOT_LOAD_PORT || 8888;
+console.log('hotLoadServer.port', port);
+
 
 new WebpackDevServer(webpack(config), {
   contentBase: 'http://localhost:' + port,

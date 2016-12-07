@@ -6,6 +6,8 @@ var node_modules_dir = path.join(__dirname, 'node_modules');
 
 var port = process.env.HOT_LOAD_PORT || 8888;
 
+console.log('webpack.config.port', port);
+
 //var AngularPlugin = require('angular-webpack-plugin');
 //var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
@@ -20,7 +22,7 @@ var config = {
         'webpack-dev-server/client?http://localhost:' + port,
         'webpack/hot/dev-server',
         //'webpack/hot/only-dev-server',
-        './src/main.js'
+        './frontend/src/main.js'
     ],
     externals: {
         //angular: 'angular'
@@ -40,9 +42,8 @@ var config = {
     module: {
         loaders: [
             {
-                test: /\.js$/,
-                //loader: 'jsx-loader',
-                loaders: ['react-hot', 'jsx?harmony'],
+                test: /\.jsx?$/,
+                loaders: ['babel-loader'],
                 exclude: [bower_dir, node_modules_dir]
             },
             {

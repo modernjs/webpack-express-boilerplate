@@ -1,0 +1,8 @@
+doctype html
+html
+  head
+    title= title
+    script(src='http://localhost:#{ process.env.HOT_LOAD_PORT || 8888 }/build/main.js')
+  body
+    block navigation
+    block content
